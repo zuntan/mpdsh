@@ -137,7 +137,7 @@ Options:
 
 ## Actions
 
-- **`<TAB>` key : **
+- **`<TAB>` key**
 	- Filename completion
 
 - **`<UP>` `<DOWN>` key**

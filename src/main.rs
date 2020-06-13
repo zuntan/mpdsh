@@ -1,3 +1,11 @@
+//	vim:set ts=4 sw=4 sts=0 fileencoding=utf-8:
+//	----------------------------------------------------------------------------
+/*
+	@file		main.rs
+	@author		zuntan
+*/
+//	----------------------------------------------------------------------------
+
 use std::env;
 use std::io::prelude::*;
 use std::io::{ BufRead, BufReader, Write };
@@ -81,7 +89,7 @@ struct Mpdsh
 
 impl Mpdsh
 {
-    fn new( stream: TcpStream, opt_protolog: bool ) -> std::result::Result< Self, () >
+    fn new( stream: TcpStream, opt_protolog: bool ) -> Result< Self, () >
     {
         let mut reader = BufReader::new( &stream );
         let mut buf = String::new();
@@ -273,11 +281,11 @@ impl Mpdsh
 
                             match reader.read( &mut buf )
                             {
-								Ok( x ) =>
+								Ok(_) =>
 								{
 		                            bin = Some( buf )
 								}
-							,	Err( x ) =>
+							,	Err(x) =>
 								{
 									io_err = Some( x );
 		                            break 'outer;
@@ -1150,7 +1158,6 @@ impl Mpdsh
         ,   "volume"
 
         ,   "status"
-        ,   "info"
 
         ,   "update"
         ,   "cmd"
@@ -1327,7 +1334,7 @@ fn parse_opt() -> ( String, String, bool )
     opts.optopt( "p", "port", "MPD port number ", "6600" );
     opts.optflag( "d", "protolog", "Output protocol log to stderr." );
     opts.optflag( "v", "version", "Print version info and exit." );
-    opts.optflag( "", "help", "print this help menu" );
+    opts.optflag( "", "help", "Print this help menu." );
 
     let opt_matches = match opts.parse( &args[1..] )
     {
@@ -1581,11 +1588,12 @@ status
 
 const HELP_UPDATE : &str = "
 update
- - Updates the music database
+ - Updates the music database on MPD
 ";
 
 const HELP_CMD : &str = "
 cmd <MPDCOMMAND> [<MPDCOMMAND_ARG> ...]
+ - Exec MPD Protocol command (see:https://www.musicpd.org/doc/html/protocol.html)
 ";
 
 const HELP_HELP : &str = "

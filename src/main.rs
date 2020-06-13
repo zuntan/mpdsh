@@ -1539,7 +1539,7 @@ pause
 const HELP_RESUME : &str = "
 resume
  - Toggles resumes playing.
- - alias( u )
+ - alias( e )
 ";
 
 const HELP_PREV : &str = "

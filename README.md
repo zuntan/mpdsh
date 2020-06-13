@@ -52,19 +52,19 @@ Options:
 	- [-l] more info
 	- FLG `=>` The current song stopped on or playing.
 	- FLG `.`  The next song to be played.
-	- alias( plist )
+	- alias( **`plist`** )
 
 - **`add [<FILE|DIR>]`**
 	- Adds the file to the playlist (directories add recursively).
 	- If no file is specified, all files under the current directory are targeted.
 	- You can use the <TAB> key for completion.
-	- alias( a )
+	- alias( **`a`** )
 
 
 - **`add_top [<FILE|DIR>]`**
 	- Adds the file to the playlist top (directories add recursively).
 	- You can use the <TAB> key for completion.
-	- alias( at )
+	- alias( **`at`** )
 
 - **`add_uri <URI> [<POSITION>]`**
 	- Adds the file to the playlist.
@@ -81,27 +81,27 @@ Options:
 
 - **`play [<POS>]`**
 	- Begins playing the playlist.
-	- alias( p )
+	- alias( **`p`** )
 
 - **`stop`**
 	- Stops playing.
-	- alias( s )
+	- alias( **`s`** )
 
 - **`pause`**
 	- Toggles pause playing.
-	- alias( u )
+	- alias( **`u`** )
 
 - **`resume`**
 	- Toggles resumes playing.
-	- alias( u )
+	- alias( **`e`** )
 
 - **`prev`**
 	- Plays previous song in the playlist.
-	- alias( r )
+	- alias( **`r`** )
 
 - **`next`**
 	- Plays next song in the playlist.
-	- alias( n )
+	- alias( **`n`** )
 
 - **`random [<STATE>]`**
 	- Sets random state to STATE, STATE should be 0 or 1.
@@ -119,11 +119,11 @@ Options:
 - **`volume <VOL>`**
 	- Sets volume to VOL, the range of volume is 0-100.
 	- Or display the current value.
-	- alias( v )
+	- alias( **`v`** )
 
 - **`status`**
 	- Reports the current status of the player and the volume level.
-	- alias( st )
+	- alias( **`st`** )
 
 - **`update`**
 	- Updates the music database on MPD
@@ -133,7 +133,7 @@ Options:
 
 - **`quit`**
 	- Quit this program.
-	- alias( q )
+	- alias( **`q`** )
 
 ## Actions
 

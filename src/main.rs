@@ -131,34 +131,34 @@ impl Mpdsh
     {
         match self.htx.send( String::from( cmd ) )
         {
-			Ok(_)	=> {
+            Ok(_)   => {
 
-				match self.wrx.recv()
-		        {
-					Ok(x)	=> {
-						return x;
-					}
-				,	Err(_)	=> {}
-				}
+                match self.wrx.recv()
+                {
+                    Ok(x)   => {
+                        return x;
+                    }
+                ,   Err(_)  => {}
+                }
 
-			}
-		,	Err(_)	=> {}
-		};
+            }
+        ,   Err(_)  => {}
+        };
 
-		Err(
-			ExecErr
-			{
-			    err_code:   -2
-			,   cmd_index:  0
-			,   cur_cmd:    None
-			,   msg_text:   None
-			}
-		)
+        Err(
+            ExecErr
+            {
+                err_code:   -2
+            ,   cmd_index:  0
+            ,   cur_cmd:    None
+            ,   msg_text:   None
+            }
+        )
     }
 
     fn worker( mut stream: TcpStream, hrx : mpsc::Receiver<String>, wtx : mpsc::Sender<ExecResult>, protolog : bool )
     {
-		let mut io_err : Option< std::io::Error > = None;
+        let mut io_err : Option< std::io::Error > = None;
 
         let time_out = Duration::from_secs( 10 );
 
@@ -171,29 +171,29 @@ impl Mpdsh
             ,   Err(_)  => { ( Cow::Borrowed( "ping" )  , false ) }
             };
 
-			if cmd == "quit"
-			{
-				wtx.send(
-					Ok(
-						ExecOk
-						{
-            				flds: 	Vec::<(String, String)>::new()
-            			,	bin: 	Option::<Vec<u8>>::None
-						}
-					)
-				);
+            if cmd == "quit"
+            {
+                wtx.send(
+                    Ok(
+                        ExecOk
+                        {
+                            flds:   Vec::<(String, String)>::new()
+                        ,   bin:    Option::<Vec<u8>>::None
+                        }
+                    )
+                );
 
                 break 'outer;
-			}
+            }
 
-			if let Err(x) = stream
+            if let Err(x) = stream
                 .write( cmd.as_bytes() )
                 .and_then(|_| stream.write( &[0x0a] ) )
                 .and_then(|_| stream.flush() )
             {
-				io_err = Some( x );
+                io_err = Some( x );
                 break 'outer;
-			}
+            }
 
             if protolog && ret
             {
@@ -219,19 +219,19 @@ impl Mpdsh
 
                 match reader.read_line( &mut buf )
                 {
-					Ok(x) =>
-					{
-						if x == 0
-						{
-							break 'outer;
-						}
-					}
-				,	Err(x) =>
-					{
-						io_err = Some( x );
-						break 'outer;
-					}
-				};
+                    Ok(x) =>
+                    {
+                        if x == 0
+                        {
+                            break 'outer;
+                        }
+                    }
+                ,   Err(x) =>
+                    {
+                        io_err = Some( x );
+                        break 'outer;
+                    }
+                };
 
                 if protolog && ret
                 {
@@ -281,16 +281,16 @@ impl Mpdsh
 
                             match reader.read( &mut buf )
                             {
-								Ok(_) =>
-								{
-		                            bin = Some( buf )
-								}
-							,	Err(x) =>
-								{
-									io_err = Some( x );
-		                            break 'outer;
-								}
-							}
+                                Ok(_) =>
+                                {
+                                    bin = Some( buf )
+                                }
+                            ,   Err(x) =>
+                                {
+                                    io_err = Some( x );
+                                    break 'outer;
+                                }
+                            }
                         }
                         else
                         {
@@ -313,16 +313,16 @@ impl Mpdsh
 
         if io_err.is_some()
         {
-			eprintln!( "" );
-			eprintln!( "{:?}", io_err.as_ref().unwrap() );
-			std::process::exit(1);
-		}
+            eprintln!( "" );
+            eprintln!( "{:?}", io_err.as_ref().unwrap() );
+            std::process::exit(1);
+        }
 
-		else if let Err(x) = stream.shutdown( std::net::Shutdown::Both )
-		{
-			eprintln!( "" );
-			eprintln!( "{:?}", x );
-		}
+        else if let Err(x) = stream.shutdown( std::net::Shutdown::Both )
+        {
+            eprintln!( "" );
+            eprintln!( "{:?}", x );
+        }
     }
 
     fn prompt( &self ) -> String
@@ -1097,7 +1097,7 @@ impl Mpdsh
             Ok(_) => {}
         ,   Err(x) => self.show_error( &x )
         }
-	}
+    }
 
     fn cmd_cmd( &self )
     {

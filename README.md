@@ -159,3 +159,14 @@ mpdsh is licensed under either of the following, at your option:
 * Apache License, Version 2.0 ([LICENSE-APACHE](https://github.com/GiorgiBeriashvili/cli-timer/blob/master/LICENSE-APACHE "Copy of the Apache license (version 2.0)"))
 * MIT License ([LICENSE-MIT](https://github.com/GiorgiBeriashvili/cli-timer/blob/master/LICENSE-MIT "Copy of the MIT license"))
 
+## Postscript
+
+This is the first I wrote in Rust.
+
+- [The 2020 Developer Survey results are here!](https://stackoverflow.blog/2020/05/27/2020-stack-overflow-developer-survey-results/)
+
+Rust is loved by so many people, and I'll love it too.
+But I'm just being scolded by the Rust compiler.
+
+My love is still lacking.
+

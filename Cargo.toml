@@ -5,12 +5,11 @@ authors = ["zuntansan"]
 edition = "2018"
 description = "Shell-like MPD client"
 readme = "README.md"
+homepage = "https://github.com/zuntan/mpdsh"
 repository = "https://github.com/zuntan/mpdsh"
 license = "MIT OR Apache-2.0"
 keywords = [ "mpd", "music" ]
 categories = [ "command-line-interface" ]
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 getopts = "0.2"

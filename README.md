@@ -170,3 +170,7 @@ But I'm just being scolded by the Rust compiler.
 
 My love is still lacking.
 
+ 
+# See also
+ - blog
+    - https://zuntansan.hatenablog.jp/
